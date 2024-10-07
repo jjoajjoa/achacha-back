@@ -1,18 +1,34 @@
 package com.achacha.vo;
 
-public class GpsDataVO {
-	private int gpsId; // GPSpk
-	private Integer driveLogId; // 운행기록pk
-	private String gpsLogTime; // 기록시각
-	private double gpsLatitude; // 위도
-	private double gpsLongitude; // 경도
-	private double gpsAltitude; // 고도
-	private double gpsSpeed; // 속도
-	private double gpsAccuracy; // 정확도
-	private double gpsDirection; // 방향
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-	public GpsDataVO(int gpsId, Integer driveLogId, String gpsLogTime, double gpsLatitude, double gpsLongitude,
-			double gpsAltitude, double gpsSpeed, double gpsAccuracy, double gpsDirection) {
+public class GpsDataVO {
+	private int gpsId;
+	private Integer driveLogId;
+
+	@JsonProperty("latitude")
+	private Double gpsLatitude; // 위도
+
+	@JsonProperty("longitude")
+	private Double gpsLongitude; // 경도
+
+	@JsonProperty("altitude")
+	private Double gpsAltitude; // 고도
+
+	@JsonProperty("speed")
+	private Double gpsSpeed; // 속도
+
+	@JsonProperty("accuracy")
+	private Double gpsAccuracy; // 정확도
+
+	@JsonProperty("time")
+	private String gpsLogTime; // 시간
+
+	@JsonProperty("direction")
+	private String gpsDirection; // 방향
+
+	public GpsDataVO(int gpsId, Integer driveLogId, String gpsLogTime, Double gpsLatitude, Double gpsLongitude,
+			Double gpsAltitude, Double gpsSpeed, Double gpsAccuracy) {
 		super();
 		this.gpsId = gpsId;
 		this.driveLogId = driveLogId;
@@ -22,7 +38,6 @@ public class GpsDataVO {
 		this.gpsAltitude = gpsAltitude;
 		this.gpsSpeed = gpsSpeed;
 		this.gpsAccuracy = gpsAccuracy;
-		this.gpsDirection = gpsDirection;
 	}
 
 	public int getGpsId() {
@@ -49,51 +64,51 @@ public class GpsDataVO {
 		this.gpsLogTime = gpsLogTime;
 	}
 
-	public double getGpsLatitude() {
+	public Double getGpsLatitude() {
 		return gpsLatitude;
 	}
 
-	public void setGpsLatitude(double gpsLatitude) {
+	public void setGpsLatitude(Double gpsLatitude) {
 		this.gpsLatitude = gpsLatitude;
 	}
 
-	public double getGpsLongitude() {
+	public Double getGpsLongitude() {
 		return gpsLongitude;
 	}
 
-	public void setGpsLongitude(double gpsLongitude) {
+	public void setGpsLongitude(Double gpsLongitude) {
 		this.gpsLongitude = gpsLongitude;
 	}
 
-	public double getGpsAltitude() {
+	public Double getGpsAltitude() {
 		return gpsAltitude;
 	}
 
-	public void setGpsAltitude(double gpsAltitude) {
+	public void setGpsAltitude(Double gpsAltitude) {
 		this.gpsAltitude = gpsAltitude;
 	}
 
-	public double getGpsSpeed() {
+	public Double getGpsSpeed() {
 		return gpsSpeed;
 	}
 
-	public void setGpsSpeed(double gpsSpeed) {
+	public void setGpsSpeed(Double gpsSpeed) {
 		this.gpsSpeed = gpsSpeed;
 	}
 
-	public double getGpsAccuracy() {
+	public Double getGpsAccuracy() {
 		return gpsAccuracy;
 	}
 
-	public void setGpsAccuracy(double gpsAccuracy) {
+	public void setGpsAccuracy(Double gpsAccuracy) {
 		this.gpsAccuracy = gpsAccuracy;
 	}
 
-	public double getGpsDirection() {
+	public String getGpsDirection() {
 		return gpsDirection;
 	}
 
-	public void setGpsDirection(double gpsDirection) {
+	public void setGpsDirection(String gpsDirection) {
 		this.gpsDirection = gpsDirection;
 	}
 
@@ -101,7 +116,7 @@ public class GpsDataVO {
 	public String toString() {
 		return "GpsDataVO [gpsId=" + gpsId + ", driveLogId=" + driveLogId + ", gpsLogTime=" + gpsLogTime
 				+ ", gpsLatitude=" + gpsLatitude + ", gpsLongitude=" + gpsLongitude + ", gpsAltitude=" + gpsAltitude
-				+ ", gpsSpeed=" + gpsSpeed + ", gpsAccuracy=" + gpsAccuracy + ", gpsDirection=" + gpsDirection + "]";
+				+ ", gpsSpeed=" + gpsSpeed + ", gpsAccuracy=" + gpsAccuracy + "]";
 	}
 
 }

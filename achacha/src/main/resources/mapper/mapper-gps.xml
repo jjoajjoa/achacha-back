@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper-gps">
+	
+	<!-- GPS 정보 저장 -->
+	<!-- 잠시만 예시로 drive_log_id는 5으로 시험해보는 중입니다. -->
+	<insert id="insertGpsData" parameterType="com.achacha.vo.GpsDataVO">
+	    INSERT INTO 
+	    	achacha_db.gps (drive_log_id, gps_log_time, gps_latitude, gps_longitude, gps_altitude, gps_speed, gps_accuracy, gps_direction)
+	    VALUES 
+	    	(5, #{gpsLogTime}, #{gpsLatitude}, #{gpsLongitude}, #{gpsAltitude}, #{gpsSpeed}, #{gpsAccuracy}, #{gpsDirection});
+	</insert>
+
+</mapper>
