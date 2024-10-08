@@ -1,9 +1,14 @@
 package com.achacha.vo;
 
+import org.springframework.stereotype.Component;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 // 심박수 정보와 GPS 정보가 합쳐진 VO
+@Component
 public class UserInfoVO {
+	
+	
 	private int gpsId;
 	private Integer driveLogId;
 	private int heartRateId; // 심박수 id

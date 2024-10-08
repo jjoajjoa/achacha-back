@@ -7,16 +7,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.achacha.vo.HeartRateDataVO;
+import com.achacha.vo.UserInfoVO;
+
+import io.micrometer.common.util.internal.logging.WarnThenDebugLogger;
 
 @RestController
 @RequestMapping("/heartrate")
 public class HeartRateRestController {
-
+	
+	// user 객체
+	static UserInfoVO user = new UserInfoVO();
 	
 	// 심박수 변화에 따라 전송 받음 ( 데이터 베이스에 들어가는 세팅 해야 합니다  아직 안함 )
     @PostMapping("/heartrate") 
     public ResponseEntity<String> receiveHeartRate(@RequestBody HeartRateDataVO watchData) {
         System.out.println("Received Heart Rate: " + watchData.getHeartRate());
+        user.setHeartRate(watchData.getHeartRate());
+        System.out.println(user);
         return ResponseEntity.ok("Data received"); // 200 메세지를 반환( 성공 실패 )
     }
     
@@ -24,6 +31,8 @@ public class HeartRateRestController {
     @PostMapping("/drivingtime") 
     public ResponseEntity<String> receiveDrivingTime(@RequestBody HeartRateDataVO watchData) {
         System.out.println("Received Driving Time: " + watchData.getDrivingTime());
+        user.setDrivingTime(watchData.getDrivingTime());
+        System.out.println(user);
         return ResponseEntity.ok("Data received");
     }
 	
